@@ -45,7 +45,7 @@ namespace Chat_Projekt_Blj
 
             // Insert into user (usernamen, pwd) values( ...
 
-            string sql = "INSERT INTO user_chat (username, password) VALUES ("userName", "passWord")";
+            string sql = "INSERT INTO user_chat (username, password) VALUES ('test'','test')";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.ExecuteReader();
         }
