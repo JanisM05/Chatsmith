@@ -1,6 +1,6 @@
 ﻿namespace Chat_Projekt_Blj
 {
-    partial class frmLogin
+    partial class LoginForm
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.btn_login = new System.Windows.Forms.Button();
-            this.lbl_errors = new System.Windows.Forms.Label();
+            this.lbl_gotoregister = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_login
@@ -56,7 +56,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(101, 75);
+            this.label1.Location = new System.Drawing.Point(97, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 19);
             this.label1.TabIndex = 1;
@@ -75,7 +75,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(120, 143);
+            this.label2.Location = new System.Drawing.Point(121, 143);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 19);
             this.label2.TabIndex = 3;
@@ -93,7 +93,7 @@
             // btn_login
             // 
             this.btn_login.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_login.Location = new System.Drawing.Point(123, 216);
+            this.btn_login.Location = new System.Drawing.Point(125, 212);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(75, 27);
             this.btn_login.TabIndex = 5;
@@ -101,22 +101,24 @@
             this.btn_login.UseVisualStyleBackColor = true;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
-            // lbl_errors
+            // lbl_gotoregister
             // 
-            this.lbl_errors.AutoSize = true;
-            this.lbl_errors.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_errors.Location = new System.Drawing.Point(39, 261);
-            this.lbl_errors.Name = "lbl_errors";
-            this.lbl_errors.Size = new System.Drawing.Size(0, 16);
-            this.lbl_errors.TabIndex = 6;
+            this.lbl_gotoregister.AutoSize = true;
+            this.lbl_gotoregister.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_gotoregister.Location = new System.Drawing.Point(59, 261);
+            this.lbl_gotoregister.Name = "lbl_gotoregister";
+            this.lbl_gotoregister.Size = new System.Drawing.Size(198, 16);
+            this.lbl_gotoregister.TabIndex = 11;
+            this.lbl_gotoregister.Text = "Einen neuen Account erstellen";
+            this.lbl_gotoregister.Click += new System.EventHandler(this.label5_Click);
             // 
-            // frmLogin
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(300, 316);
-            this.Controls.Add(this.lbl_errors);
+            this.Controls.Add(this.lbl_gotoregister);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.label2);
@@ -124,7 +126,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_login);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "frmLogin";
+            this.Name = "LoginForm";
             this.Text = "Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -141,7 +143,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_password;
         private System.Windows.Forms.Button btn_login;
-        private System.Windows.Forms.Label lbl_errors;
+        private System.Windows.Forms.Label lbl_gotoregister;
     }
 }
 

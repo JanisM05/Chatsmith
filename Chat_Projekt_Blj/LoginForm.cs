@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Chat_Projekt_Blj
 {
-    public partial class frmLogin : Form
+    public partial class LoginForm : Form
     {
 
         Timer timer = new Timer();
 
-        public frmLogin()
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -44,14 +44,40 @@ namespace Chat_Projekt_Blj
 
         private void btn_login_Click(object sender, EventArgs e)
         {
+           //List<ChatMessage> messages = new List<ChatMessage>();
+
+
+           // for (int i = 1; i <= 10; i++)
+           // {
+           //     ChatMessage m = new ChatMessage();
+           //     m[0] = "von db" + i;
+           //     m.Receiver = "von db" + i;
+
+           //     messages.Add(m);
+
+           // }
+
+
+           // foreach (ChatMessage m2 in messages) 
+           // {
+           //     MessageBox.Show(m2.Sender);
+           // }
+
+
+
             if (txt_username.Text != "" && txt_password.Text != "")
             {
                 
             }
-            else
-            {
-                lbl_errors.Text = "Sie müssen beide Felder ausfüllen!";
-            }
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show();
+            this.Hide();
+
         }
     }
 }
