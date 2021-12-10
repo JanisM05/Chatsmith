@@ -31,7 +31,7 @@ namespace Chat_Projekt_Blj
             {
                 MessageBox.Show("Sie müssen einen Benutzernamen eingeben");
             }
-            else if (txt_password.Text == "" ^ txt_confpassword.Text == "")
+            else if (txt_password.Text == "" || txt_confpassword.Text == "")
             {
                 MessageBox.Show("Sie müssen beide Passwort-Felder ausfüllen");
             }
@@ -41,7 +41,14 @@ namespace Chat_Projekt_Blj
             }
             else
             {
-                
+                string userName = txt_user.Text;
+                string passWord = txt_password.Text;
+
+
+                DatabaseAccess da = new DatabaseAccess();
+                da.OpenConnection();
+                da.RegisterUser(userName, passWord);
+                da.CloseConnection();
             }
         }
     }

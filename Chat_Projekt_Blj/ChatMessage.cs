@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Chat_Projekt_Blj
 {
-    internal class ChatMessage
+    public class ChatMessage
     {
         public string Receiver;
         public string Sender;
         public DateTime SendDate;
-
+        public string Message;
 
 
     }
