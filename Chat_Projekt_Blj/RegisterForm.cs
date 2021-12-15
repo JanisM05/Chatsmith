@@ -25,8 +25,13 @@ namespace Chat_Projekt_Blj
             this.Hide();
         }
 
-        private void btn_register_Click(object sender, EventArgs e)
+        public void btn_register_Click(object sender, EventArgs e)
         {
+            DatabaseAccess da = new DatabaseAccess();
+
+            string userName = txt_user.Text;
+            string passWord = txt_password.Text;
+
             if (txt_user.Text == "")
             {
                 MessageBox.Show("Sie müssen einen Benutzernamen eingeben");
@@ -39,16 +44,16 @@ namespace Chat_Projekt_Blj
             {
                 MessageBox.Show("Die Passwörter stimmen nich überein");
             }
-            else
+            else if (da.IsUserExisting(userName, passWord) == true)
             {
-                string userName = txt_user.Text;
-                string passWord = txt_password.Text;
-
-
-                DatabaseAccess da = new DatabaseAccess();
+                MessageBox.Show("Der Benutzername ist bereits vergeben");
+            }
+            else if (da.IsUserExisting(userName, passWord) == false)
+            { 
                 da.OpenConnection();
                 da.RegisterUser(userName, passWord);
                 da.CloseConnection();
+                MessageBox.Show("Sie wurden registriert");
             }
         }
     }

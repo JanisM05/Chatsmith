@@ -31,8 +31,41 @@ namespace Chat_Projekt_Blj
             }
         }
 
-        public bool IsUserExisting(string userName)
+        public bool IsUserExisting(string userName, string passWord)
         {
+            List<User> result = new List<User>();
+            OpenConnection();
+            string sql = "SELECT * FROM user_chat";
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+
+            while (reader.HasRows)
+            {
+                reader.Read();
+                string username = reader["username"].ToString();
+                string password = reader["password"].ToString();
+
+                User us = new User();
+                us.UserName = username;
+                us.PassWord = password;
+                result.Add(us);
+            }
+
+
+
+
+            CloseConnection();
+
+            foreach (User UserName in result)
+            {
+               string user = Convert.ToString(UserName);
+                if (userName == user)
+                {
+                    return true;
+                }
+            }
+
             return false;
         }
 
@@ -44,8 +77,7 @@ namespace Chat_Projekt_Blj
             }
 
             // Insert into user (usernamen, pwd) values( ...
-
-            string sql = "INSERT INTO user_chat (username, password) VALUES ('test'','test')";
+            string sql = "INSERT INTO user_chat (username, password) VALUES ('"+userName+"','"+passWord+"')";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.ExecuteReader();
         }
@@ -69,6 +101,8 @@ namespace Chat_Projekt_Blj
             {
                 int id = Convert.ToInt32(reader["ID"]);
                 string user = reader["Username"].ToString();
+
+                
             }
 
 

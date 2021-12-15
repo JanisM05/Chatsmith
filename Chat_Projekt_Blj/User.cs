@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Chat_Projekt_Blj
 {
-    public class ChatMessage
+    public class User
     {
-        public string Receiver;
-        public string Sender;
-        public DateTime SendDate;
-        public string Message;
+        public string UserName;
+        public string PassWord;
     }
 }

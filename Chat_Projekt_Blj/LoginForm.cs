@@ -14,6 +14,7 @@ namespace Chat_Projekt_Blj
     {
 
         Timer timer = new Timer();
+        private object txt_user;
 
         public LoginForm()
         {
@@ -44,31 +45,35 @@ namespace Chat_Projekt_Blj
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-           //List<ChatMessage> messages = new List<ChatMessage>();
+            //List<ChatMessage> messages = new List<ChatMessage>();
 
 
-           // for (int i = 1; i <= 10; i++)
-           // {
-           //     ChatMessage m = new ChatMessage();
-           //     m[0] = "von db" + i;
-           //     m.Receiver = "von db" + i;
+            // for (int i = 1; i <= 10; i++)
+            // {
+            //     ChatMessage m = new ChatMessage();
+            //     m[0] = "von db" + i;
+            //     m.Receiver = "von db" + i;
 
-           //     messages.Add(m);
+            //     messages.Add(m);
 
-           // }
-
-
-           // foreach (ChatMessage m2 in messages) 
-           // {
-           //     MessageBox.Show(m2.Sender);
-           // }
+            // }
 
 
+            // foreach (ChatMessage m2 in messages) 
+            // {
+            //     MessageBox.Show(m2.Sender);
+            // }
 
-            if (txt_username.Text != "" && txt_password.Text != "")
-            {
-                
-            }
+
+
+            string userName = txt_username.Text;
+            string passWord = txt_password.Text;
+
+
+            DatabaseAccess da = new DatabaseAccess();
+            da.OpenConnection();
+            da.IsUserExisting(userName, passWord);
+            da.CloseConnection();
 
         }
 
