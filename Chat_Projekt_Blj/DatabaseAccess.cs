@@ -40,9 +40,8 @@ namespace Chat_Projekt_Blj
             MySqlDataReader reader = cmd.ExecuteReader();
 
 
-            while (reader.HasRows)
+            while (reader.Read())
             {
-                reader.Read();
                 string username = reader["username"].ToString();
                 string password = reader["password"].ToString();
 
