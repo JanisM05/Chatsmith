@@ -144,9 +144,26 @@ namespace Chat_Projekt_Blj
             return result;
         } 
 
-        public List<List> GetUserNames()
+        public List<Contacts> GetContacts()
         {
+            List<Contacts> result = new List<Contacts>();
 
+            OpenConnection();
+            string sql = "SELECT username FROM user_chat";
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Contacts us = new Contacts();
+                us.UserName = reader["username"].ToString();
+                result.Add(us);
+            }
+
+            reader.Close();
+            reader.Dispose();
+
+            return result;
         }
 
 

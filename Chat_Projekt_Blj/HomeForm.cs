@@ -19,7 +19,8 @@ namespace Chat_Projekt_Blj
             InitializeComponent();
             us = new UserNames();
 
-
+            DatabaseAccess db = new DatabaseAccess();
+            db.GetContacts();
         }
 
         public void HomeForm_Load(object sender, EventArgs e)
