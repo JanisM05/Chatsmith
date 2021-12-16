@@ -72,7 +72,19 @@ namespace Chat_Projekt_Blj
 
             DatabaseAccess da = new DatabaseAccess();
             da.OpenConnection();
-            da.IsUserExisting(userName, passWord);
+            if (da.IsLoginCorrect(userName, passWord) == false)
+            {
+                MessageBox.Show("Die Login-Date");
+            }
+            else if (da.IsLoginCorrect(userName, passWord) == true)
+            {
+                HomeForm homeForm = new HomeForm();
+                homeForm.Show();
+                this.Hide();
+
+                UserNames us = new UserNames();
+                us.SaveUsername(userName);
+            }
             da.CloseConnection();
 
         }

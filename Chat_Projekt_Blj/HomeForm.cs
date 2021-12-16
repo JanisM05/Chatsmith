@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Chat_Projekt_Blj
 {
-    public partial class HomeForm : Form
+    public class HomeForm : Form
     {
         public HomeForm()
         {
@@ -19,7 +19,7 @@ namespace Chat_Projekt_Blj
 
         private void HomeForm_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

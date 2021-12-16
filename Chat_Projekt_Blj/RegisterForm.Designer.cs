@@ -70,6 +70,7 @@
             this.txt_password.Location = new System.Drawing.Point(43, 164);
             this.txt_password.MaximumSize = new System.Drawing.Size(250, 50);
             this.txt_password.Name = "txt_password";
+            this.txt_password.PasswordChar = '*';
             this.txt_password.Size = new System.Drawing.Size(214, 23);
             this.txt_password.TabIndex = 3;
             // 
@@ -119,6 +120,7 @@
             this.txt_confpassword.Location = new System.Drawing.Point(43, 233);
             this.txt_confpassword.MaximumSize = new System.Drawing.Size(250, 50);
             this.txt_confpassword.Name = "txt_confpassword";
+            this.txt_confpassword.PasswordChar = '*';
             this.txt_confpassword.Size = new System.Drawing.Size(214, 23);
             this.txt_confpassword.TabIndex = 8;
             // 

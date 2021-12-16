@@ -42,26 +42,56 @@ namespace Chat_Projekt_Blj
 
             while (reader.Read())
             {
-                string username = reader["username"].ToString();
-                string password = reader["password"].ToString();
-
                 User us = new User();
-                us.UserName = username;
-                us.PassWord = password;
+                us.UserName = reader["username"].ToString();
+                us.PassWord = reader["password"].ToString();
                 result.Add(us);
             }
 
-
-
+            reader.Close();
+            reader.Dispose();
 
             CloseConnection();
 
-            foreach (User UserName in result)
+            foreach (User user in result)
             {
-               string user = Convert.ToString(UserName);
-                if (userName == user)
+                if (user.UserName == userName)
                 {
                     return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool IsLoginCorrect (string userName, string passWord)
+        {
+            List<User> result = new List<User>();
+
+            OpenConnection();
+            string sql = "SELECT * FROM user_chat";
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                User us = new User();
+                us.UserName = reader["username"].ToString();
+                us.PassWord = reader["password"].ToString();
+                result.Add(us);
+            }
+
+            reader.Close();
+            reader.Dispose ();
+
+            foreach (User user in result)
+            {
+                if (user.UserName == userName)
+                {
+                    if (user.PassWord == passWord)
+                    {
+                        return true;
+                    }
                 }
             }
 

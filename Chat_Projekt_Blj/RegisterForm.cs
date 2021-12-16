@@ -55,6 +55,7 @@ namespace Chat_Projekt_Blj
                 da.CloseConnection();
                 MessageBox.Show("Sie wurden registriert");
             }
+
         }
     }
 }
