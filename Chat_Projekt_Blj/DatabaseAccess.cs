@@ -144,6 +144,11 @@ namespace Chat_Projekt_Blj
             return result;
         } 
 
+        public List<List> GetUserNames()
+        {
+
+        }
+
 
        
        

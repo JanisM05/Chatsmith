@@ -31,7 +31,7 @@
             this.customInstaller1 = new MySql.Data.MySqlClient.CustomInstaller();
             this.lbl_login = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.user = new System.Windows.Forms.Label();
+            this.lbl_user = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_login
@@ -58,21 +58,22 @@
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
             // 
-            // user
+            // lbl_user
             // 
-            this.user.AutoSize = true;
-            this.user.Location = new System.Drawing.Point(21, 62);
-            this.user.Name = "user";
-            this.user.Padding = new System.Windows.Forms.Padding(70, 0, 70, 0);
-            this.user.Size = new System.Drawing.Size(140, 13);
-            this.user.TabIndex = 4;
+            this.lbl_user.AutoSize = true;
+            this.lbl_user.BackColor = System.Drawing.Color.Chocolate;
+            this.lbl_user.Location = new System.Drawing.Point(21, 62);
+            this.lbl_user.Name = "lbl_user";
+            this.lbl_user.Padding = new System.Windows.Forms.Padding(70, 0, 70, 0);
+            this.lbl_user.Size = new System.Drawing.Size(140, 13);
+            this.lbl_user.TabIndex = 4;
             // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 579);
-            this.Controls.Add(this.user);
+            this.Controls.Add(this.lbl_user);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.lbl_login);
             this.ForeColor = System.Drawing.SystemColors.ButtonShadow;
@@ -91,6 +92,6 @@
         private MySql.Data.MySqlClient.CustomInstaller customInstaller1;
         private System.Windows.Forms.Label lbl_login;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label user;
+        private System.Windows.Forms.Label lbl_user;
     }
 }

@@ -69,6 +69,8 @@ namespace Chat_Projekt_Blj
             string userName = txt_username.Text;
             string passWord = txt_password.Text;
 
+            UserNames us = new UserNames();
+            us.SaveUsername(userName);
 
             DatabaseAccess da = new DatabaseAccess();
             da.OpenConnection();
@@ -78,12 +80,10 @@ namespace Chat_Projekt_Blj
             }
             else if (da.IsLoginCorrect(userName, passWord) == true)
             {
+
                 HomeForm homeForm = new HomeForm();
                 homeForm.Show();
                 this.Hide();
-
-                UserNames us = new UserNames();
-                us.SaveUsername(userName);
             }
             da.CloseConnection();
 

@@ -10,16 +10,24 @@ using System.Windows.Forms;
 
 namespace Chat_Projekt_Blj
 {
-    public class HomeForm : Form
+    public partial class HomeForm : Form
     {
+        UserNames us;
+
         public HomeForm()
         {
             InitializeComponent();
+            us = new UserNames();
+
+
         }
 
-        private void HomeForm_Load(object sender, EventArgs e)
+        public void HomeForm_Load(object sender, EventArgs e)
         {
-            
+            string useroutput = us.user;
+            lbl_user.Text = useroutput;
         }
+
+
     }
 }

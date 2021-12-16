@@ -8,9 +8,11 @@ namespace Chat_Projekt_Blj
 {
     public class UserNames
     {
-        public string SaveUsername(string userName)
+        public string user;
+
+        public void SaveUsername(string userName)
         {
-            return userName;
+            user = userName;
         }
     }
 }
