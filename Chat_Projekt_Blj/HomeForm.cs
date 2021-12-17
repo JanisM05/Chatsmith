@@ -45,10 +45,30 @@ namespace Chat_Projekt_Blj
             lbl_user.Text = useroutput;
         }
 
-        private void lbl_contact_Click(object sender, EventArgs e)
+        public void lbl_contact_Click(object sender, EventArgs e)
         {
+            string receiver = "";
+            receiver = lbl_contact.ToString();
+
+            UserNames us = new UserNames();
+            us.SaveReveiver(receiver);
 
         }
 
+        private void btn_sendMessage_Click(object sender, EventArgs e)
+        {
+            string message = txt_message.Text;
+
+            DatabaseAccess db = new DatabaseAccess();
+
+            if (us.receiver != "")
+            {
+                db.SendMessage(message);
+            }
+            else
+            {
+                MessageBox.Show("Sie haben keinen Empfänger ausgewählt");
+            }
+        }
     }
 }

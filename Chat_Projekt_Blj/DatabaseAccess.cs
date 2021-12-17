@@ -113,9 +113,15 @@ namespace Chat_Projekt_Blj
             cmd.ExecuteReader();
         }
 
-        public void SendMessage(string message, string user)
+        public void SendMessage(string message)
         {
+            UserNames us = new UserNames();
 
+            OpenConnection();
+            string sql = "INSERT INTO message_chat (text, receiver) VALUES ('" + message + "''" + us.receiver + "')";
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            cmd.ExecuteReader();
+            CloseConnection();
         }
 
         public List<ChatMessage> GetMessages(string userName)

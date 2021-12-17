@@ -8,11 +8,18 @@ namespace Chat_Projekt_Blj
 {
     public class UserNames
     {
+        public string receiver;
+
         public string user;
 
         public void SaveUsername(string userName)
         {
             user = userName;
+        }
+
+        public void SaveReveiver(string username)
+        {
+            username = receiver;
         }
     }
 }
