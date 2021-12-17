@@ -118,7 +118,7 @@ namespace Chat_Projekt_Blj
             UserNames us = new UserNames();
 
             OpenConnection();
-            string sql = "INSERT INTO message_chat (text, receiver) VALUES ('" + message + "''" + us.receiver + "')";
+            string sql = "INSERT INTO message_chat (text, receiver, date) VALUES ('" + message + "','" + us.receiver + "','" + DateTime.Now + "')";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.ExecuteReader();
             CloseConnection();

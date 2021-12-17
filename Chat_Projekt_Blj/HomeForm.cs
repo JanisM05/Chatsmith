@@ -16,7 +16,7 @@ namespace Chat_Projekt_Blj
 
         int ypos = 90;
         int xpos = 0;
-        Label[] lbl_contact = new Label[10];
+        Button[] btn_contact = new Button[10];
 
         public HomeForm()
         {
@@ -29,14 +29,17 @@ namespace Chat_Projekt_Blj
             foreach(Contacts contact in db.listContacts)
             {
                 int i = 0;
-                lbl_contact[i] = new Label();
-                lbl_contact[i].Location = new System.Drawing.Point(xpos, ypos);
-                lbl_contact[i].Text = contact.UserName;
-                this.Controls.Add(lbl_contact[i]);
+                btn_contact[i] = new Button();
+                btn_contact[i].Location = new System.Drawing.Point(xpos, ypos);
+                btn_contact[i].Text = contact.UserName;
+                this.Controls.Add(btn_contact[i]);
                 ypos += 30;
-                lbl_contact[i].AutoSize = true;
+                btn_contact[i].AutoSize = true;
                 i++;
             }
+
+            txt_message.Hide();
+            btn_sendMessage.Hide();
         }
 
         public void HomeForm_Load(object sender, EventArgs e)
@@ -45,17 +48,19 @@ namespace Chat_Projekt_Blj
             lbl_user.Text = useroutput;
         }
 
-        public void lbl_contact_Click(object sender, EventArgs e)
+        public void btn_contact_Click(object sender, EventArgs e)
         {
-            string receiver = "";
-            receiver = lbl_contact.ToString();
+            string receiver; ;
+            receiver = btn_contact.ToString();
 
             UserNames us = new UserNames();
             us.SaveReveiver(receiver);
 
+            txt_message.Show();
+            btn_sendMessage.Show();
         }
 
-        private void btn_sendMessage_Click(object sender, EventArgs e)
+        public void btn_sendMessage_Click(object sender, EventArgs e)
         {
             string message = txt_message.Text;
 
