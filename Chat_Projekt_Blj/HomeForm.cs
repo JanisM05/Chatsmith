@@ -14,7 +14,9 @@ namespace Chat_Projekt_Blj
     {
         UserNames us;
 
-        Label[] lbl_contact = new Label[];
+        int ypos = 90;
+        int xpos = 0;
+        Label[] lbl_contact = new Label[10];
 
         public HomeForm()
         {
@@ -26,10 +28,14 @@ namespace Chat_Projekt_Blj
 
             foreach(Contacts contact in db.listContacts)
             {
-                Label lbl_contact = new Label();
-                lbl_contact.Text = "contact.UserName";
-                AutoSize = true;
-               
+                int i = 0;
+                lbl_contact[i] = new Label();
+                lbl_contact[i].Location = new System.Drawing.Point(xpos, ypos);
+                lbl_contact[i].Text = contact.UserName;
+                this.Controls.Add(lbl_contact[i]);
+                ypos += 30;
+                lbl_contact[i].AutoSize = true;
+                i++;
             }
         }
 
@@ -39,6 +45,10 @@ namespace Chat_Projekt_Blj
             lbl_user.Text = useroutput;
         }
 
+        private void lbl_contact_Click(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

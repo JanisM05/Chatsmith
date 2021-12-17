@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Chat_Projekt_Blj
 {
-    public class Contacts
+    public
+        class Contacts
     {
         public string UserName;
     }
