@@ -14,6 +14,8 @@ namespace Chat_Projekt_Blj
     {
         UserNames us;
 
+        Label[] lbl_contact = new Label[];
+
         public HomeForm()
         {
             InitializeComponent();
@@ -21,6 +23,14 @@ namespace Chat_Projekt_Blj
 
             DatabaseAccess db = new DatabaseAccess();
             db.GetContacts();
+
+            foreach(Contacts contact in db.listContacts)
+            {
+                Label lbl_contact = new Label();
+                lbl_contact.Text = "contact.UserName";
+                AutoSize = true;
+               
+            }
         }
 
         public void HomeForm_Load(object sender, EventArgs e)

@@ -5,16 +5,18 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.MobileControls;
+using System.Windows.Documents;
 
 namespace Chat_Projekt_Blj
 {
     public class DatabaseAccess
     {
+        public List<Contacts> listContacts = new List<Contacts>();
+
         const string ConnString = "Server=localhost;Database=wordpress;Uid=root;Pwd=;";
 
         private MySqlConnection connection;
-
-
 
         public void OpenConnection()
         {
@@ -162,6 +164,9 @@ namespace Chat_Projekt_Blj
 
             reader.Close();
             reader.Dispose();
+            CloseConnection();
+
+            listContacts = result;
 
             return result;
         }
