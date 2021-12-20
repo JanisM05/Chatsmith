@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_message = new System.Windows.Forms.RichTextBox();
             this.btn_sendMessage = new System.Windows.Forms.Button();
+            this.test = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_login
@@ -104,11 +105,20 @@
             this.btn_sendMessage.UseVisualStyleBackColor = true;
             this.btn_sendMessage.Click += new System.EventHandler(this.btn_sendMessage_Click);
             // 
+            // test
+            // 
+            this.test.AutoSize = true;
+            this.test.Location = new System.Drawing.Point(479, 144);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(0, 13);
+            this.test.TabIndex = 8;
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 579);
+            this.Controls.Add(this.test);
             this.Controls.Add(this.btn_sendMessage);
             this.Controls.Add(this.txt_message);
             this.Controls.Add(this.label1);
@@ -134,5 +144,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox txt_message;
         private System.Windows.Forms.Button btn_sendMessage;
+        private System.Windows.Forms.Label test;
     }
 }

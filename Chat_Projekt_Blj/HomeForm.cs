@@ -36,8 +36,8 @@ namespace Chat_Projekt_Blj
                 ypos += 30;
                 btn_contact[i].AutoSize = true;
                 i++;
+                
             }
-
             txt_message.Hide();
             btn_sendMessage.Hide();
         }
@@ -50,7 +50,7 @@ namespace Chat_Projekt_Blj
 
         public void btn_contact_Click(object sender, EventArgs e)
         {
-            string receiver; ;
+            string receiver;
             receiver = btn_contact.ToString();
 
             UserNames us = new UserNames();
