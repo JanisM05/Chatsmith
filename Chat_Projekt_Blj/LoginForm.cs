@@ -69,7 +69,7 @@ namespace Chat_Projekt_Blj
             string userName = txt_username.Text;
             string passWord = txt_password.Text;
 
-            UserNames us = new UserNames();
+            UserNames us = DatabaseAccess.us;
             us.SaveUsername(userName);
 
             DatabaseAccess da = new DatabaseAccess();

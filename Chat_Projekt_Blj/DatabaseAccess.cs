@@ -12,6 +12,8 @@ namespace Chat_Projekt_Blj
 {
     public class DatabaseAccess
     {
+        public static UserNames us = new UserNames();
+
         public List<Contacts> listContacts = new List<Contacts>();
 
         const string ConnString = "Server=localhost;Database=wordpress;Uid=root;Pwd=;";
@@ -115,10 +117,10 @@ namespace Chat_Projekt_Blj
 
         public void SendMessage(string message)
         {
-            UserNames us = new UserNames();
+            
 
             OpenConnection();
-            string sql = "INSERT INTO message_chat (text, receiver, date) VALUES ('" + message + "','" + us.receiver + "','" + DateTime.Now + "')";
+            string sql = "INSERT INTO message_chat (text, receiver, date, sender) VALUES ('" + message + "','" + us.receiver + "','" + DateTime.Now + "','" + us.user + "')";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.ExecuteReader();
             CloseConnection();

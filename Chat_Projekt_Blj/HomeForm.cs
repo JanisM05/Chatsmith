@@ -40,6 +40,7 @@ namespace Chat_Projekt_Blj
             }
             txt_message.Hide();
             btn_sendMessage.Hide();
+
         }
 
         public void HomeForm_Load(object sender, EventArgs e)
@@ -53,8 +54,8 @@ namespace Chat_Projekt_Blj
             string receiver;
             receiver = btn_contact.ToString();
 
-            UserNames us = new UserNames();
-            us.SaveReveiver(receiver);
+            UserNames us = DatabaseAccess.us;
+            us.SaveReceiver(receiver);
 
             txt_message.Show();
             btn_sendMessage.Show();
@@ -74,6 +75,18 @@ namespace Chat_Projekt_Blj
             {
                 MessageBox.Show("Sie haben keinen Empfänger ausgewählt");
             }
+        }
+
+        private void test_Click(object sender, EventArgs e)
+        {
+            string receiver;
+            receiver = "test";
+
+            UserNames us = DatabaseAccess.us;
+            us.SaveReceiver(receiver);
+
+            txt_message.Show();
+            btn_sendMessage.Show();
         }
     }
 }

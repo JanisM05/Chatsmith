@@ -17,9 +17,9 @@ namespace Chat_Projekt_Blj
             user = userName;
         }
 
-        public void SaveReveiver(string username)
+        public void SaveReceiver(string username)
         {
-            username = receiver;
+            receiver = username;
         }
     }
 }

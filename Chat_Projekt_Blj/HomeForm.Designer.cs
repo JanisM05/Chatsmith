@@ -108,10 +108,12 @@
             // test
             // 
             this.test.AutoSize = true;
-            this.test.Location = new System.Drawing.Point(479, 144);
+            this.test.Location = new System.Drawing.Point(450, 123);
             this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(0, 13);
+            this.test.Size = new System.Drawing.Size(24, 13);
             this.test.TabIndex = 8;
+            this.test.Text = "test";
+            this.test.Click += new System.EventHandler(this.test_Click);
             // 
             // HomeForm
             // 
