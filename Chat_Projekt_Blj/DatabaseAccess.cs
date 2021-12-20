@@ -117,8 +117,6 @@ namespace Chat_Projekt_Blj
 
         public void SendMessage(string message)
         {
-            
-
             OpenConnection();
             string sql = "INSERT INTO message_chat (text, receiver, date, sender) VALUES ('" + message + "','" + us.receiver + "','" + DateTime.Now + "','" + us.user + "')";
             MySqlCommand cmd = new MySqlCommand(sql, connection);

@@ -12,7 +12,6 @@ namespace Chat_Projekt_Blj
 {
     public partial class LoginForm : Form
     {
-
         Timer timer = new Timer();
         private object txt_user;
 

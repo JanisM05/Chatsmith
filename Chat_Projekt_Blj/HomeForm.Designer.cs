@@ -31,11 +31,11 @@
             this.customInstaller1 = new MySql.Data.MySqlClient.CustomInstaller();
             this.lbl_login = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.lbl_user = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_message = new System.Windows.Forms.RichTextBox();
             this.btn_sendMessage = new System.Windows.Forms.Button();
             this.test = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lbl_login
@@ -62,23 +62,13 @@
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
             // 
-            // lbl_user
-            // 
-            this.lbl_user.AutoSize = true;
-            this.lbl_user.BackColor = System.Drawing.Color.Chocolate;
-            this.lbl_user.Location = new System.Drawing.Point(12, 55);
-            this.lbl_user.Name = "lbl_user";
-            this.lbl_user.Padding = new System.Windows.Forms.Padding(70, 0, 70, 0);
-            this.lbl_user.Size = new System.Drawing.Size(140, 13);
-            this.lbl_user.TabIndex = 4;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(540, 0);
+            this.label1.Location = new System.Drawing.Point(552, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(120, 10, 120, 10);
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -108,23 +98,32 @@
             // test
             // 
             this.test.AutoSize = true;
-            this.test.Location = new System.Drawing.Point(450, 123);
+            this.test.Location = new System.Drawing.Point(292, 68);
             this.test.Name = "test";
             this.test.Size = new System.Drawing.Size(24, 13);
             this.test.TabIndex = 8;
             this.test.Text = "test";
             this.test.Click += new System.EventHandler(this.test_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(414, 87);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 95);
+            this.listBox1.TabIndex = 9;
+            this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 579);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.test);
             this.Controls.Add(this.btn_sendMessage);
             this.Controls.Add(this.txt_message);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbl_user);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.lbl_login);
             this.ForeColor = System.Drawing.SystemColors.ButtonShadow;
@@ -142,10 +141,10 @@
         private MySql.Data.MySqlClient.CustomInstaller customInstaller1;
         private System.Windows.Forms.Label lbl_login;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label lbl_user;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox txt_message;
         private System.Windows.Forms.Button btn_sendMessage;
         private System.Windows.Forms.Label test;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
