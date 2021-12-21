@@ -117,8 +117,11 @@ namespace Chat_Projekt_Blj
 
         public void SendMessage(string message)
         {
+            DateTime dateTime = DateTime.Now;
+            string time = dateTime.ToString("yyyy-MM-dd hh:mm:ss");
+
             OpenConnection();
-            string sql = "INSERT INTO message_chat (text, receiver, date, sender) VALUES ('" + message + "','" + us.receiver + "','" + DateTime.Now + "','" + us.user + "')";
+            string sql = "INSERT INTO message_chat (text, receiver, date, sender) VALUES ('" + message + "','" + us.receiver + "','" + time + "','" + us.user + "')";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.ExecuteReader();
             CloseConnection();
@@ -128,26 +131,17 @@ namespace Chat_Projekt_Blj
         {
             List<ChatMessage> result = new List<ChatMessage>();
 
-
-            string sql = "SELECT * FROM ...";
-
+            OpenConnection();
+            string sql = "SELECT * from FROM message_chat WHERE receiver ='" + us.user + "', AND sender = '" + us.receiver + "', OR receiver ='" + us.receiver + "', AND sender = '" + us.user;
             MySqlCommand cmd = new MySqlCommand(sql, connection);
-            MySqlDataReader reader = cmd.ExecuteReader();
+            cmd.ExecuteReader();
+            CloseConnection();
 
             while (reader.Read())
             {
-                int id = Convert.ToInt32(reader["ID"]);
-                string user = reader["Username"].ToString();
 
-                
             }
 
-
-            ChatMessage msg = new ChatMessage();
-            msg.Sender = "Hans";
-            msg.SendDate = new DateTime(2021, 11, 12);
-            msg.Message = "Hallo Peter, wie gehts?";
-            result.Add(msg);
 
             return result;
         } 
