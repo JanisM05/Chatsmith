@@ -10,7 +10,7 @@ namespace Chat_Projekt_Blj
     {
         public string Receiver;
         public string Sender;
-        public DateTime SendDate;
+        public string SendDate;
         public string Message;
     }
 }

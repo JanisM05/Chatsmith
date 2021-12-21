@@ -127,23 +127,31 @@ namespace Chat_Projekt_Blj
             CloseConnection();
         }
 
-        public List<ChatMessage> GetMessages(string userName)
+        public List<ChatMessage> GetMessages()
         {
-            List<ChatMessage> result = new List<ChatMessage>();
-
-            OpenConnection();
-            string sql = "SELECT * from FROM message_chat WHERE receiver ='" + us.user + "', AND sender = '" + us.receiver + "', OR receiver ='" + us.receiver + "', AND sender = '" + us.user;
-            MySqlCommand cmd = new MySqlCommand(sql, connection);
-            cmd.ExecuteReader();
-            CloseConnection();
-
-            while (reader.Read())
+            if (us.receiver != null)
             {
+                List<ChatMessage> result = new List<ChatMessage>();
 
+                OpenConnection();
+                string sql = "SELECT * FROM message_chat WHERE (receiver ='" + us.user + "' AND sender = '" + us.receiver + "') OR (receiver ='" + us.receiver + "' AND sender = '" + us.user + "')";
+                MySqlCommand cmd = new MySqlCommand(sql, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ChatMessage ms = new ChatMessage();
+                    ms.Message = reader["text"].ToString();
+                    ms.SendDate = reader["date"].ToString();
+                    ms.Sender = reader["sender"].ToString();
+                    result.Add(ms);
+                }
+
+                CloseConnection();
+
+                return result;
             }
-
-
-            return result;
+            return null;
         } 
 
         public List<Contacts> GetContacts()
@@ -151,7 +159,7 @@ namespace Chat_Projekt_Blj
             List<Contacts> result = new List<Contacts>();
 
             OpenConnection();
-            string sql = "SELECT username FROM user_chat";
+            string sql = "SELECT username FROM user_chat where username != '" + us.user + "'";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             MySqlDataReader reader = cmd.ExecuteReader();
 

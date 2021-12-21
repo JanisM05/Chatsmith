@@ -34,8 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_message = new System.Windows.Forms.RichTextBox();
             this.btn_sendMessage = new System.Windows.Forms.Button();
-            this.test = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btn_logout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_login
@@ -72,9 +71,8 @@
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(120, 10, 120, 10);
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(368, 46);
+            this.label1.Size = new System.Drawing.Size(240, 46);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Chatsmith";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txt_message
@@ -95,32 +93,22 @@
             this.btn_sendMessage.UseVisualStyleBackColor = true;
             this.btn_sendMessage.Click += new System.EventHandler(this.btn_sendMessage_Click);
             // 
-            // test
+            // btn_logout
             // 
-            this.test.AutoSize = true;
-            this.test.Location = new System.Drawing.Point(292, 68);
-            this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(24, 13);
-            this.test.TabIndex = 8;
-            this.test.Text = "test";
-            this.test.Click += new System.EventHandler(this.test_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(414, 87);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 9;
-            this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
+            this.btn_logout.Location = new System.Drawing.Point(12, 524);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(346, 43);
+            this.btn_logout.TabIndex = 8;
+            this.btn_logout.Text = "Logout";
+            this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 579);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.test);
+            this.Controls.Add(this.btn_logout);
             this.Controls.Add(this.btn_sendMessage);
             this.Controls.Add(this.txt_message);
             this.Controls.Add(this.label1);
@@ -144,7 +132,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox txt_message;
         private System.Windows.Forms.Button btn_sendMessage;
-        private System.Windows.Forms.Label test;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btn_logout;
     }
 }

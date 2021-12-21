@@ -14,8 +14,8 @@ namespace Chat_Projekt_Blj
     {
         public static UserNames us = new UserNames();
 
-        int ypos = 90;
-        int xpos = 0;
+        List<Label> labels = new List<Label>();
+
         List<Button> buttons = new List<Button>();
 
         public HomeForm()
@@ -26,7 +26,10 @@ namespace Chat_Projekt_Blj
             DatabaseAccess db = new DatabaseAccess();
             db.GetContacts();
 
-            foreach(Contacts contact in db.listContacts)
+            int ypos = 90;
+            int xpos = 0;
+
+            foreach (Contacts contact in db.listContacts)
             {
                 Button btn_contact = new Button();
 
@@ -45,6 +48,9 @@ namespace Chat_Projekt_Blj
 
         private void ContactButton_Click(object sender, EventArgs e)
         {
+
+            DatabaseAccess db = new DatabaseAccess();
+
             Button b = (Button)sender;
             Contacts c = (Contacts)b.Tag;
 
@@ -56,6 +62,36 @@ namespace Chat_Projekt_Blj
 
             txt_message.Show();
             btn_sendMessage.Show();
+
+            db.GetMessages();
+
+            int ypos = 90;
+            int xpos = 400;
+
+            foreach (Label label in labels)
+            {
+                this.Controls.Remove(label);
+            }
+
+            foreach (ChatMessage ms in db.GetMessages())
+            {
+                xpos = 400;
+
+                if (ms.Sender == us.user)
+                {
+                    xpos += 200;
+                }
+
+                Label lbl_message = new Label();
+
+                labels.Add(lbl_message);
+
+                lbl_message.Location = new System.Drawing.Point(xpos, ypos);
+                lbl_message.Text = ms.Message;
+                this.Controls.Add(lbl_message);
+                ypos += 30;
+                lbl_message.AutoSize = true;
+            }
         }
 
         public void HomeForm_Load(object sender, EventArgs e)
@@ -91,12 +127,9 @@ namespace Chat_Projekt_Blj
             btn_sendMessage.Show();
         }
 
-        private void listBox1_Click(object sender, EventArgs e)
+        private void btn_logout_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItems.Count > 0)
-            {
-                MessageBox.Show(listBox1.SelectedItem.ToString());
-            }
+            Application.Restart();
         }
     }
 }
