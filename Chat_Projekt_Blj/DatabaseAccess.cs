@@ -24,6 +24,7 @@ namespace Chat_Projekt_Blj
         {
             connection = new MySqlConnection(ConnString);
          
+            
             connection.Open();
         }
 

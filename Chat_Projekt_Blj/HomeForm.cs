@@ -18,13 +18,19 @@ namespace Chat_Projekt_Blj
 
         List<Button> buttons = new List<Button>();
 
+        
+
         public HomeForm()
         {
+            UserNames us = DatabaseAccess.us;
+
             InitializeComponent();
             us = new UserNames();
 
             DatabaseAccess db = new DatabaseAccess();
             db.GetContacts();
+
+            
 
             int ypos = 90;
             int xpos = 0;
@@ -57,41 +63,13 @@ namespace Chat_Projekt_Blj
             string receiver;
             receiver = b.Text.ToString();
 
-            UserNames us = DatabaseAccess.us;
+            
             us.SaveReceiver(receiver);
 
             txt_message.Show();
             btn_sendMessage.Show();
 
-            db.GetMessages();
-
-            int ypos = 90;
-            int xpos = 400;
-
-            foreach (Label label in labels)
-            {
-                this.Controls.Remove(label);
-            }
-
-            foreach (ChatMessage ms in db.GetMessages())
-            {
-                xpos = 400;
-
-                if (ms.Sender == us.user)
-                {
-                    xpos += 200;
-                }
-
-                Label lbl_message = new Label();
-
-                labels.Add(lbl_message);
-
-                lbl_message.Location = new System.Drawing.Point(xpos, ypos);
-                lbl_message.Text = ms.Message;
-                this.Controls.Add(lbl_message);
-                ypos += 30;
-                lbl_message.AutoSize = true;
-            }
+            showMessages();
         }
 
         public void HomeForm_Load(object sender, EventArgs e)
@@ -108,11 +86,14 @@ namespace Chat_Projekt_Blj
             if (us.receiver != "")
             {
                 db.SendMessage(message);
+                db.GetMessages();
             }
             else
             {
                 MessageBox.Show("Sie haben keinen Empfänger ausgewählt");
             }
+
+            showMessages();
         }
 
         private void test_Click(object sender, EventArgs e)
@@ -124,12 +105,47 @@ namespace Chat_Projekt_Blj
             us.SaveReceiver(receiver);
 
             txt_message.Show();
-            btn_sendMessage.Show();
         }
 
         private void btn_logout_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        public void showMessages()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+
+            db.GetMessages();
+
+            int ypos = 90;
+            int xpos = 400;
+
+            foreach (Label label in labels)
+            {
+                this.Controls.Remove(label);
+            }
+
+            foreach (ChatMessage ms in db.GetMessages())
+            {
+                UserNames us = DatabaseAccess.us;
+
+                xpos = 400;
+
+                if (ms.Sender == us.user)
+                {
+                    xpos += 200;
+                }
+
+                Label lbl_message = new Label();
+
+                labels.Add(lbl_message);
+                lbl_message.Location = new System.Drawing.Point(xpos, ypos);
+                lbl_message.Text = ms.Message;
+                this.Controls.Add(lbl_message);
+                ypos += 30;
+                lbl_message.AutoSize = true;
+            }
         }
     }
 }
