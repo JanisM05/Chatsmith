@@ -12,7 +12,6 @@ namespace Chat_Projekt_Blj
 {
     public class DatabaseAccess
     {
-        public static UserNames us = new UserNames();
 
         public List<Contacts> listContacts = new List<Contacts>();
 
@@ -116,26 +115,26 @@ namespace Chat_Projekt_Blj
             cmd.ExecuteReader();
         }
 
-        public void SendMessage(string message)
+        public void SendMessage(string message, string receiver, string user)
         {
             DateTime dateTime = DateTime.Now;
             string time = dateTime.ToString("yyyy-MM-dd hh:mm:ss");
 
             OpenConnection();
-            string sql = "INSERT INTO message_chat (text, receiver, date, sender) VALUES ('" + message + "','" + us.receiver + "','" + time + "','" + us.user + "')";
+            string sql = "INSERT INTO message_chat (text, receiver, date, sender) VALUES ('" + message + "','" + receiver + "','" + time + "','" + user + "')";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.ExecuteReader();
             CloseConnection();
         }
 
-        public List<ChatMessage> GetMessages()
+        public List<ChatMessage> GetMessages(string receiver, string user)
         {
-            if (us.receiver != null)
+            if (receiver != null)
             {
                 List<ChatMessage> result = new List<ChatMessage>();
 
                 OpenConnection();
-                string sql = "SELECT * FROM message_chat WHERE (receiver ='" + us.user + "' AND sender = '" + us.receiver + "') OR (receiver ='" + us.receiver + "' AND sender = '" + us.user + "')";
+                string sql = "SELECT * FROM message_chat WHERE (receiver ='" + user + "' AND sender = '" + receiver + "') OR (receiver ='" + receiver + "' AND sender = '" + user + "')";
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -158,12 +157,12 @@ namespace Chat_Projekt_Blj
             }
         } 
 
-        public List<Contacts> GetContacts()
+        public List<Contacts> GetContacts(string user)
         {
             List<Contacts> result = new List<Contacts>();
 
             OpenConnection();
-            string sql = "SELECT username FROM user_chat where username != '" + us.user + "'";
+            string sql = "SELECT username FROM user_chat where username != '" + user + "'";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             MySqlDataReader reader = cmd.ExecuteReader();
 

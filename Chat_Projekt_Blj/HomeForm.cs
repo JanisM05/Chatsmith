@@ -12,21 +12,25 @@ namespace Chat_Projekt_Blj
 {
     public partial class HomeForm : Form
     {
-        public static UserNames us = DatabaseAccess.us;
+        DatabaseAccess db = new DatabaseAccess();
+
+        string loggedInUser = string.Empty;
 
         List<Label> labels = new List<Label>();
 
         List<Button> buttons = new List<Button>();
 
-        
+        UserNames us = new UserNames();
 
-        public HomeForm()
+        public HomeForm(string loginName)
         {
+
             InitializeComponent();
-            us = new UserNames();
+
+            loggedInUser = loginName;
 
             DatabaseAccess db = new DatabaseAccess();
-            db.GetContacts();
+            db.GetContacts(loggedInUser);
 
             
 
@@ -53,8 +57,6 @@ namespace Chat_Projekt_Blj
         private void ContactButton_Click(object sender, EventArgs e)
         {
 
-            DatabaseAccess db = new DatabaseAccess();
-
             Button b = (Button)sender;
             Contacts c = (Contacts)b.Tag;
 
@@ -63,6 +65,7 @@ namespace Chat_Projekt_Blj
 
             
             us.SaveReceiver(receiver);
+            us.SaveUsername(loggedInUser);
 
             txt_message.Show();
             btn_sendMessage.Show();
@@ -72,6 +75,8 @@ namespace Chat_Projekt_Blj
 
         public void HomeForm_Load(object sender, EventArgs e)
         {
+            lbl_login.Text += "  ["+ loggedInUser + "]";
+
         }
 
 
@@ -79,12 +84,10 @@ namespace Chat_Projekt_Blj
         { 
             string message = txt_message.Text;
 
-            DatabaseAccess db = new DatabaseAccess();
-
             if (us.receiver != "")
             {
-                db.SendMessage(message);
-                db.GetMessages();
+                db.SendMessage(message, us.receiver, us.user);
+                db.GetMessages(us.receiver, us.user);
             }
             else
             {
@@ -94,16 +97,6 @@ namespace Chat_Projekt_Blj
             showMessages();
         }
 
-        private void test_Click(object sender, EventArgs e)
-        {
-            string receiver;
-            receiver = "test";
-
-            UserNames us = DatabaseAccess.us;
-            us.SaveReceiver(receiver);
-
-            txt_message.Show();
-        }
 
         private void btn_logout_Click(object sender, EventArgs e)
         {
@@ -112,7 +105,9 @@ namespace Chat_Projekt_Blj
 
         public void showMessages()
         {
-            DatabaseAccess db = new DatabaseAccess();
+            List<ChatMessage> messages = new List<ChatMessage>();
+
+            messages = db.GetMessages(us.receiver, us.user);
 
             int ypos = 90;
             int xpos = 400;
@@ -122,9 +117,8 @@ namespace Chat_Projekt_Blj
                 this.Controls.Remove(label);
             }
 
-            foreach (ChatMessage ms in db.GetMessages())
+            foreach (ChatMessage ms in messages)
             {
-                UserNames us = DatabaseAccess.us;
 
                 xpos = 400;
 

@@ -13,7 +13,6 @@ namespace Chat_Projekt_Blj
     public partial class LoginForm : Form
     {
         Timer timer = new Timer();
-        private object txt_user;
 
         public LoginForm()
         {
@@ -68,9 +67,6 @@ namespace Chat_Projekt_Blj
             string userName = txt_username.Text;
             string passWord = txt_password.Text;
 
-            UserNames us = DatabaseAccess.us;
-            us.SaveUsername(userName);
-
             DatabaseAccess da = new DatabaseAccess();
             da.OpenConnection();
             if (da.IsLoginCorrect(userName, passWord) == false)
@@ -80,7 +76,7 @@ namespace Chat_Projekt_Blj
             else if (da.IsLoginCorrect(userName, passWord) == true)
             {
 
-                HomeForm homeForm = new HomeForm();
+                HomeForm homeForm = new HomeForm(userName);
                 homeForm.Show();
                 this.Hide();
             }
