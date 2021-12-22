@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +13,8 @@ namespace Chat_Projekt_Blj
 {
     public partial class HomeForm : Form
     {
+        Timer timer = new Timer();
+
         DatabaseAccess db = new DatabaseAccess();
 
         string loggedInUser = string.Empty;
@@ -56,6 +59,7 @@ namespace Chat_Projekt_Blj
 
         private void ContactButton_Click(object sender, EventArgs e)
         {
+            lbl_textreceiver.Show();
 
             Button b = (Button)sender;
             Contacts c = (Contacts)b.Tag;
@@ -71,12 +75,28 @@ namespace Chat_Projekt_Blj
             btn_sendMessage.Show();
 
             showMessages();
+
+            lbl_receiver.Text = receiver;
         }
 
         public void HomeForm_Load(object sender, EventArgs e)
         {
-            lbl_login.Text += "  ["+ loggedInUser + "]";
+            lbl_user.Text = loggedInUser;
 
+            lbl_textreceiver.Hide();
+
+            if (us.receiver != null)
+            {
+                timer.Tick += Timer_Tick;
+                timer.Interval = 5000;
+                timer.Start();
+            }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            db.GetMessages(us.receiver, us.user);
+            showMessages();
         }
 
 
@@ -119,7 +139,6 @@ namespace Chat_Projekt_Blj
 
             foreach (ChatMessage ms in messages)
             {
-
                 xpos = 400;
 
                 if (ms.Sender == us.user)
@@ -131,11 +150,19 @@ namespace Chat_Projekt_Blj
 
                 labels.Add(lbl_message);
                 lbl_message.Location = new System.Drawing.Point(xpos, ypos);
-                lbl_message.Text = ms.Message;
+
+                String result = Regex.Replace(ms.Message, "(.{" + 50 + "})", "$1" + Environment.NewLine);
+
+                lbl_message.Text = result;
                 this.Controls.Add(lbl_message);
-                ypos += 30;
+                ypos += 50;
                 lbl_message.AutoSize = true;
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -12,7 +12,6 @@ namespace Chat_Projekt_Blj
 {
     public partial class LoginForm : Form
     {
-        Timer timer = new Timer();
 
         public LoginForm()
         {
@@ -21,19 +20,13 @@ namespace Chat_Projekt_Blj
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            timer.Tick += Timer_Tick;
-            timer.Interval = 5000;
-            timer.Start();
-        }
 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
         }
 
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            timer.Stop(); MessageBox.Show("Benutzer schliesst formular.");
+            MessageBox.Show("Benutzer schliesst formular.");
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
