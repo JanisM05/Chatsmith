@@ -12,7 +12,7 @@ namespace Chat_Projekt_Blj
 {
     public partial class HomeForm : Form
     {
-        public static UserNames us = new UserNames();
+        public static UserNames us = DatabaseAccess.us;
 
         List<Label> labels = new List<Label>();
 
@@ -22,8 +22,6 @@ namespace Chat_Projekt_Blj
 
         public HomeForm()
         {
-            UserNames us = DatabaseAccess.us;
-
             InitializeComponent();
             us = new UserNames();
 
@@ -115,8 +113,6 @@ namespace Chat_Projekt_Blj
         public void showMessages()
         {
             DatabaseAccess db = new DatabaseAccess();
-
-            db.GetMessages();
 
             int ypos = 90;
             int xpos = 400;

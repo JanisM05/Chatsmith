@@ -152,7 +152,10 @@ namespace Chat_Projekt_Blj
 
                 return result;
             }
-            return null;
+            else
+            {
+                throw new Exception("Der Receiver ist null");
+            }
         } 
 
         public List<Contacts> GetContacts()
