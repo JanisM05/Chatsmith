@@ -39,7 +39,7 @@
             this.lbl_textreceiver = new System.Windows.Forms.Label();
             this.lbl_receiver = new System.Windows.Forms.Label();
             this.customInstaller2 = new MySql.Data.MySqlClient.CustomInstaller();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // lbl_title
@@ -91,20 +91,20 @@
             // lbl_textuser
             // 
             this.lbl_textuser.AutoSize = true;
-            this.lbl_textuser.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_textuser.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_textuser.Location = new System.Drawing.Point(8, 55);
             this.lbl_textuser.Name = "lbl_textuser";
-            this.lbl_textuser.Size = new System.Drawing.Size(160, 16);
+            this.lbl_textuser.Size = new System.Drawing.Size(204, 20);
             this.lbl_textuser.TabIndex = 9;
             this.lbl_textuser.Text = "Sie sind eingeloggt als:";
             // 
             // lbl_user
             // 
             this.lbl_user.AutoSize = true;
-            this.lbl_user.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_user.Location = new System.Drawing.Point(174, 55);
+            this.lbl_user.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_user.Location = new System.Drawing.Point(218, 55);
             this.lbl_user.Name = "lbl_user";
-            this.lbl_user.Size = new System.Drawing.Size(45, 16);
+            this.lbl_user.Size = new System.Drawing.Size(59, 20);
             this.lbl_user.TabIndex = 10;
             this.lbl_user.Text = "label3";
             // 
@@ -137,20 +137,21 @@
             this.lbl_receiver.Size = new System.Drawing.Size(0, 26);
             this.lbl_receiver.TabIndex = 13;
             // 
-            // panel1
+            // richTextBox1
             // 
-            this.panel1.Location = new System.Drawing.Point(423, 55);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(605, 459);
-            this.panel1.TabIndex = 14;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.richTextBox1.Location = new System.Drawing.Point(423, 76);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBox1.Size = new System.Drawing.Size(586, 419);
+            this.richTextBox1.TabIndex = 14;
+            this.richTextBox1.Text = "";
             // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 579);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.lbl_receiver);
             this.Controls.Add(this.lbl_textreceiver);
             this.Controls.Add(this.line);
@@ -183,6 +184,6 @@
         private System.Windows.Forms.Label lbl_textreceiver;
         private System.Windows.Forms.Label lbl_receiver;
         private MySql.Data.MySqlClient.CustomInstaller customInstaller2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

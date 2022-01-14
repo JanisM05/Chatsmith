@@ -38,7 +38,7 @@ namespace Chat_Projekt_Blj
             
 
             int ypos = 90;
-            int xpos = 0;
+            int xpos = 8;
 
             foreach (Contacts contact in db.listContacts)
             {
@@ -47,11 +47,14 @@ namespace Chat_Projekt_Blj
                 btn_contact.Location = new System.Drawing.Point(xpos, ypos);
                 btn_contact.Text = contact.UserName;
                 this.Controls.Add(btn_contact);
-                ypos += 30;
+                ypos += 40;
+                btn_contact.Size = new System.Drawing.Size(350, 36);
                 btn_contact.AutoSize = true;
+                btn_contact.Font = new Font(btn_contact.Font.FontFamily, 14);
                 btn_contact.Tag = contact;
                 btn_contact.Click += ContactButton_Click;
                 buttons.Add(btn_contact);
+                btn_contact.
             }
             txt_message.Hide();
             btn_sendMessage.Hide();
