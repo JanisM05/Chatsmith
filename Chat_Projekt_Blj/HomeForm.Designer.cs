@@ -39,6 +39,7 @@
             this.lbl_textreceiver = new System.Windows.Forms.Label();
             this.lbl_receiver = new System.Windows.Forms.Label();
             this.customInstaller2 = new MySql.Data.MySqlClient.CustomInstaller();
+            this.P_chat = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // lbl_title
@@ -136,11 +137,20 @@
             this.lbl_receiver.Size = new System.Drawing.Size(0, 26);
             this.lbl_receiver.TabIndex = 13;
             // 
+            // P_chat
+            // 
+            this.P_chat.AutoScroll = true;
+            this.P_chat.Location = new System.Drawing.Point(396, 71);
+            this.P_chat.Name = "P_chat";
+            this.P_chat.Size = new System.Drawing.Size(618, 425);
+            this.P_chat.TabIndex = 14;
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 579);
+            this.Controls.Add(this.P_chat);
             this.Controls.Add(this.lbl_receiver);
             this.Controls.Add(this.lbl_textreceiver);
             this.Controls.Add(this.line);
@@ -173,5 +183,6 @@
         private System.Windows.Forms.Label lbl_textreceiver;
         private System.Windows.Forms.Label lbl_receiver;
         private MySql.Data.MySqlClient.CustomInstaller customInstaller2;
+        private System.Windows.Forms.Panel P_chat;
     }
 }

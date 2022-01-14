@@ -136,16 +136,16 @@ namespace Chat_Projekt_Blj
 
             foreach (Label label in labels)
             {
-                this.Controls.Remove(label);
+                P_chat.Controls.Remove(label);
             }
 
             foreach (ChatMessage ms in messages)
             {
-                xpos = 400;
+                xpos = 10;
 
                 if (ms.Sender == us.user)
                 {
-                    xpos += 200;
+                    xpos += 100;
                 }
 
                 Label lbl_message = new Label();
@@ -156,9 +156,11 @@ namespace Chat_Projekt_Blj
                 String result = Regex.Replace(ms.Message, "(.{" + 50 + "})", "$1" + Environment.NewLine);
 
                 lbl_message.Text = result;
-                this.Controls.Add(lbl_message);
+                P_chat.Controls.Add(lbl_message);
                 ypos += 50;
                 lbl_message.AutoSize = true;
+
+                
             }
         }
     }

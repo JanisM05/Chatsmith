@@ -118,7 +118,7 @@ namespace Chat_Projekt_Blj
         public void SendMessage(string message, string receiver, string user)
         {
             DateTime dateTime = DateTime.Now;
-            string time = dateTime.ToString("yyyy-MM-dd hh:mm:ss");
+            string time = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
             OpenConnection();
             string sql = "INSERT INTO message_chat (text, receiver, date, sender) VALUES ('" + message + "','" + receiver + "','" + time + "','" + user + "')";
@@ -134,7 +134,7 @@ namespace Chat_Projekt_Blj
                 List<ChatMessage> result = new List<ChatMessage>();
 
                 OpenConnection();
-                string sql = "SELECT * FROM message_chat WHERE (receiver ='" + user + "' AND sender = '" + receiver + "') OR (receiver ='" + receiver + "' AND sender = '" + user + "')";
+                string sql = "SELECT * FROM message_chat WHERE (receiver ='" + user + "' AND sender = '" + receiver + "') OR (receiver ='" + receiver + "' AND sender = '" + user + "') Order by date desc";
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
