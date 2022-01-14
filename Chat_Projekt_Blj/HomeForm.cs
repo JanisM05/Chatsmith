@@ -54,7 +54,6 @@ namespace Chat_Projekt_Blj
                 btn_contact.Tag = contact;
                 btn_contact.Click += ContactButton_Click;
                 buttons.Add(btn_contact);
-                btn_contact.
             }
             txt_message.Hide();
             btn_sendMessage.Hide();
@@ -161,11 +160,6 @@ namespace Chat_Projekt_Blj
                 ypos += 50;
                 lbl_message.AutoSize = true;
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

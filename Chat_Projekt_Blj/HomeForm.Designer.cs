@@ -39,7 +39,6 @@
             this.lbl_textreceiver = new System.Windows.Forms.Label();
             this.lbl_receiver = new System.Windows.Forms.Label();
             this.customInstaller2 = new MySql.Data.MySqlClient.CustomInstaller();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // lbl_title
@@ -60,7 +59,7 @@
             // txt_message
             // 
             this.txt_message.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_message.Location = new System.Drawing.Point(423, 531);
+            this.txt_message.Location = new System.Drawing.Point(409, 531);
             this.txt_message.Name = "txt_message";
             this.txt_message.Size = new System.Drawing.Size(447, 36);
             this.txt_message.TabIndex = 6;
@@ -69,7 +68,7 @@
             // btn_sendMessage
             // 
             this.btn_sendMessage.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_sendMessage.Location = new System.Drawing.Point(888, 531);
+            this.btn_sendMessage.Location = new System.Drawing.Point(874, 528);
             this.btn_sendMessage.Name = "btn_sendMessage";
             this.btn_sendMessage.Size = new System.Drawing.Size(140, 36);
             this.btn_sendMessage.TabIndex = 7;
@@ -137,21 +136,11 @@
             this.lbl_receiver.Size = new System.Drawing.Size(0, 26);
             this.lbl_receiver.TabIndex = 13;
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(423, 76);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox1.Size = new System.Drawing.Size(586, 419);
-            this.richTextBox1.TabIndex = 14;
-            this.richTextBox1.Text = "";
-            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 579);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.lbl_receiver);
             this.Controls.Add(this.lbl_textreceiver);
             this.Controls.Add(this.line);
@@ -184,6 +173,5 @@
         private System.Windows.Forms.Label lbl_textreceiver;
         private System.Windows.Forms.Label lbl_receiver;
         private MySql.Data.MySqlClient.CustomInstaller customInstaller2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
