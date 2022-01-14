@@ -140,9 +140,9 @@
             // P_chat
             // 
             this.P_chat.AutoScroll = true;
-            this.P_chat.Location = new System.Drawing.Point(396, 71);
+            this.P_chat.Location = new System.Drawing.Point(409, 55);
             this.P_chat.Name = "P_chat";
-            this.P_chat.Size = new System.Drawing.Size(618, 425);
+            this.P_chat.Size = new System.Drawing.Size(605, 441);
             this.P_chat.TabIndex = 14;
             // 
             // HomeForm

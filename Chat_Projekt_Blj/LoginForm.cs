@@ -18,15 +18,9 @@ namespace Chat_Projekt_Blj
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("Benutzer schliesst formular.");
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -64,7 +58,7 @@ namespace Chat_Projekt_Blj
             da.OpenConnection();
             if (da.IsLoginCorrect(userName, passWord) == false)
             {
-                MessageBox.Show("Die Login-Date");
+                MessageBox.Show("Die Login-Daten sind falsch");
             }
             else if (da.IsLoginCorrect(userName, passWord) == true)
             {

@@ -131,7 +131,7 @@ namespace Chat_Projekt_Blj
 
             messages = db.GetMessages(us.receiver, us.user);
 
-            int ypos = 90;
+            int ypos = 0;
             int xpos = 400;
 
             foreach (Label label in labels)
@@ -141,19 +141,20 @@ namespace Chat_Projekt_Blj
 
             foreach (ChatMessage ms in messages)
             {
-                xpos = 10;
+                xpos = 0;
 
                 if (ms.Sender == us.user)
                 {
-                    xpos += 100;
+                    xpos += 250;
                 }
 
                 Label lbl_message = new Label();
 
                 labels.Add(lbl_message);
                 lbl_message.Location = new System.Drawing.Point(xpos, ypos);
+                lbl_message.Font = new System.Drawing.Font(lbl_message.Font.FontFamily, 12);
 
-                String result = Regex.Replace(ms.Message, "(.{" + 50 + "})", "$1" + Environment.NewLine);
+                String result = Regex.Replace(ms.Message, "(.{" + 40 + "})", "$1" + Environment.NewLine);
 
                 lbl_message.Text = result;
                 P_chat.Controls.Add(lbl_message);
